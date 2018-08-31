@@ -1,7 +1,10 @@
+from django.http import HttpResponse
+
 from rest_framework import generics
 
 from .serializers import TaskSerializer
 from TaskManager.models import Task
+from TaskManager.views import TaskRepository
 
 class TaskCRUView(generics.ListCreateAPIView):
     serializer_class = TaskSerializer
@@ -30,3 +33,13 @@ class TaskCRUView(generics.ListCreateAPIView):
             qs = qs.filter(id=query)
 
         return qs
+
+    def post(self, request, *args, **kwargs):
+        priority = request.data.get("priority")
+        description = request.data.get("description")
+        task_type = request.data.get("task_type")
+        status = request.data.get("status")
+        user = request.data.get("user")
+
+        TaskRepository.create_task(self, priority, description, task_type, status, user)
+        return HttpResponse(status=200)
