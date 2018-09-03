@@ -35,25 +35,36 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 30px;
+  padding: 10px 20px;
   border-bottom: .5px solid #dbdbdc;
 }
 
 .tasks > ul li:first-child {
   background-color: #fbfbfc;
   border: none;
-  padding: 15px 30px;
+  padding: 15px 20px;
 }
 
 .tasks > ul li p {
-  margin: 0;
-  width: 15%;
+  width: 100px;
   display: flex;
   justify-content: flex-start;
+  margin: 0 10px;
+}
+
+.tasks > ul li p.task-desc {
+  width: 500px;
+}
+
+.tasks > ul li p:first-child {
+  margin-left: 0;
+}
+
+.tasks > ul li p:last-child {
+  margin-right: 0;
 }
 
 .tasks > ul li:first-child p{
-  margin: 0;
   font-size: 16px;
 }
 

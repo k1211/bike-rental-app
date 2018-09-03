@@ -1,0 +1,21 @@
+<section class="employees">
+  <ul>
+    <li>
+      <p>ID</p>
+      <p>USERNAME</p>
+      <p>NAME</p>
+      <p>SURNAME</p>
+      <p>IS ADMIN</p>
+      <p>LAST LOGIN</p>
+    </li>
+    <li *ngFor="let employee of employees">
+      <p> {{ employee.id }}</p>
+      <p> {{ employee.username }}</p>
+      <p> {{ employee.name }}</p>
+      <p> {{ employee.surname }}</p>
+      <p> {{ employee.isAdmin }}</p>
+      <p> {{ employee.lastLogin }}</p>
+    </li>
+  </ul>
+  <button class="tasks-button">Add new employee</button>
+</section>

@@ -3,7 +3,7 @@
     <li>
       <p>ID</p>
       <p>PRIORITY</p>
-      <p>DESCRIPTION</p>
+      <p class="task-desc">DESCRIPTION</p>
       <p>TASK TYPE</p>
       <p>STATUS</p>
       <p *ngIf="isAdmin">EMPLOYEE</p>
@@ -12,12 +12,15 @@
     <li *ngFor="let task of tasks">
       <p>{{ task.id }}</p>
       <p> {{ task.priority }}</p>
-      <p> {{ task.description }}</p>
+      <p class="task-desc"> {{ task.description }}</p>
       <p> {{ task.taskType }}</p>
       <p> {{ task.status }}</p>
       <p *ngIf="isAdmin"> {{ task.user }}</p>
       <button class="tasks-button">Edit</button>
     </li>
   </ul>
-  <button class="tasks-button">Add new task</button>
+  <button *ngIf="isAdmin"
+          class="tasks-button">
+    Add new task
+  </button>
 </section>

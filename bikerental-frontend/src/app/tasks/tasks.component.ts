@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Task } from '../task';
 
 @Component({
@@ -7,15 +7,7 @@ import { Task } from '../task';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
-  isAdmin = true;
-  aTask: Task = {
-    id : 1,
-    priority : '1',
-    description : '222',
-    taskType : 'bla',
-    status : 'new',
-    user : 'kasia'
-  };
+  @Input() isAdmin;
 
   tasks: Task[] = [
     {
@@ -29,7 +21,7 @@ export class TasksComponent implements OnInit {
     {
     id : 2,
     priority : '1',
-    description : '33ee33',
+    description : 'Pro labores volutpat urbanitas an. Eos ad aliquid meliore ceteros, rebum malis pro eu. Sensibus corrumpit pertinacia qui ad. Eum ne reque laoreet erroribus, eripuit ceteros assueverit qui eu. Duo et iusto principes adversarium.',
     taskType : 'bleea',
     status : 'neeew',
     user : null
