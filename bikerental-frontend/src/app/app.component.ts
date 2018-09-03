@@ -8,4 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Bike rental';
   loginLogout = 'Logout';
+  logged = true;
+  isAdmin = true;
 }

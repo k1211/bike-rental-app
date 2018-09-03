@@ -1,0 +1,75 @@
+.tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.tasks-button {
+  margin: 0;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.tasks > button {
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-size: 14px;
+  background-color: #b3e769;
+  margin: 10px 20px;
+}
+
+.tasks > button:hover {
+  background-color: #709f50;
+}
+
+.tasks > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.tasks > ul li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  border-bottom: .5px solid #dbdbdc;
+}
+
+.tasks > ul li:first-child {
+  background-color: #fbfbfc;
+  border: none;
+  padding: 15px 30px;
+}
+
+.tasks > ul li p {
+  margin: 0;
+  width: 15%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tasks > ul li:first-child p{
+  margin: 0;
+  font-size: 16px;
+}
+
+.tasks > ul li button{
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 10px;
+  background-color: #709f50;
+}
+
+.tasks > ul li:first-child button{
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 10px;
+  color: transparent;
+  background-color: transparent;
+  cursor: default;
+}
+
