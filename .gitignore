@@ -178,3 +178,6 @@ yarn-error.log
 
 # rollup-test output
 /modules/rollup-test/dist/
+
+package-lock.json
+package.json
