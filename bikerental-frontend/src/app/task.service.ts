@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Task} from "./task";
+import { Task } from "./task";
+
+
+const TASK_URL = 'http://127.0.0.1:8000/api/task/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-
-  taskUrl = 'http://127.0.0.1:8000/api/task/';
-
   constructor(
     private http: HttpClient
   ) { }
 
   getTasks(): Observable<Object> {
-    return this.http.get(this.taskUrl);
+    return this.http.get(TASK_URL);
   }
 
   updateTask(): void {
@@ -30,7 +30,7 @@ export class TaskService {
       })
     };
     // 'Authorization': 'my-auth-token'
-    return this.http.post(this.taskUrl, task, httpOptions);
+    return this.http.post(TASK_URL, task, httpOptions);
   }
 
 }

@@ -9,6 +9,7 @@ export class CreateTaskComponent implements OnInit {
 
   taskTypes = ['Repair', 'Transport', 'Swapping battery'];
   status = ['New', 'In progress', 'Done'];
+  priority = ['Low', 'High'];
   submitted = false;
 
   constructor() { }

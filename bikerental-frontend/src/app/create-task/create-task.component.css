@@ -1,0 +1,53 @@
+.app-create-task,
+.app-create-task > form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-create-task > h1 {
+  font-size: 20px;
+  color: white;
+  background-color: #709f50;
+  padding: 5px 10px;
+}
+
+.app-create-task > form {
+  width: 100%;
+}
+
+.app-create-task > form button {
+  background-color: #709f50;
+  margin: 0;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.app-create-task > form .submit-btn,
+.form-group {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+  margin: 10px 0;
+}
+
+.form-group {
+  justify-content: space-between;
+}
+
+.form-group label {
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width: 80%;
+  padding: 5px;
+}
+

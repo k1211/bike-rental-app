@@ -2,7 +2,17 @@ from django.db import models
 from django.conf import settings
 
 class Task(models.Model):
-    priority = models.CharField(max_length=10)
+    LOW = 'LOW'
+    HIGH = 'HIGH'
+    PRIORITY_CHOICES = (
+        (LOW, 'Low'),
+        (HIGH, 'High'),
+    )
+    priority = models.CharField(
+        max_length=10,
+        choices=PRIORITY_CHOICES,
+        default=LOW,
+    )
     description = models.CharField(max_length=256)
     REPAIR = 'REPAIR'
     TRANSPORT = 'TRANSPORT'
