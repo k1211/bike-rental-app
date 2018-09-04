@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Task } from '../task';
+import { TaskService } from "../task.service";
 
 @Component({
   selector: 'app-tasks',
@@ -9,29 +10,18 @@ import { Task } from '../task';
 export class TasksComponent implements OnInit {
   @Input() isAdmin;
 
-  tasks: Task[] = [
-    {
-    id : 1,
-    priority : '1',
-    description : '222',
-    taskType : 'bla',
-    status : 'new',
-    user : 'kasia'
-  },
-    {
-    id : 2,
-    priority : '1',
-    description : 'Pro labores volutpat urbanitas an. Eos ad aliquid meliore ceteros, rebum malis pro eu. Sensibus corrumpit pertinacia qui ad. Eum ne reque laoreet erroribus, eripuit ceteros assueverit qui eu. Duo et iusto principes adversarium.',
-    taskType : 'bleea',
-    status : 'neeew',
-    user : null
-  }
-  ];
+  tasks: Task[];
 
-
-  constructor() { }
+  constructor(
+    private taskService: TaskService
+  ) { }
 
   ngOnInit() {
+    this.getTasks();
   }
 
+  public getTasks(): void {
+    this.taskService.getTasks()
+      .subscribe(tasks => this.tasks = tasks);
+  }
 }

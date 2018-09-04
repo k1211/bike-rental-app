@@ -6,8 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Bike rental';
-  loginLogout = 'Logout';
   logged = true;
   isAdmin = true;
+  loginLogout = 'Logout';
 }

@@ -1,12 +1,12 @@
 <header>
       <ul *ngIf="logged">
         <li>
-          <a routerLink="#"> Tasks </a>
+          <a routerLink=""> Tasks </a>
         </li>
         <li *ngIf="isAdmin">
-          <a routerLink="#"> Employees </a>
+          <a routerLink="employees"> Employees </a>
         </li>
       </ul>
       <a routerLink="#"> {{ loginLogout }} </a>
 </header>
-<app-tasks [isAdmin]="isAdmin"></app-tasks>
+<router-outlet></router-outlet>

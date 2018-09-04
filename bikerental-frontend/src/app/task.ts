@@ -3,6 +3,6 @@ export class Task {
   priority: string;
   status: string;
   description: string;
-  taskType: string;
-  user: string;
+  task_type: string;
+  user: number;
 }
