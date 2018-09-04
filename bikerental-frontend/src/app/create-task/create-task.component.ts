@@ -11,6 +11,8 @@ export class CreateTaskComponent implements OnInit {
   status = ['New', 'In progress', 'Done'];
   priority = ['Low', 'High'];
   submitted = false;
+  employees = [''];
+  newTask = {priority: 'low', description: '', task_type: 'repair', user: '', status:'new'};
 
   constructor() { }
 
