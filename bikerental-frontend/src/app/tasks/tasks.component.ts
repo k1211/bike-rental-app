@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { Task } from '../task';
+import {Component, OnInit} from '@angular/core';
 import { TaskService } from "../task.service";
+import {DataService} from "../data.service";
 
 @Component({
   selector: 'app-tasks',
@@ -8,16 +8,17 @@ import { TaskService } from "../task.service";
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
-  @Input() isAdmin;
-
-  tasks: Task[];
+  isAdmin: boolean = false;
+  tasks: Object;
 
   constructor(
-    private taskService: TaskService
+    private taskService: TaskService,
+    private dataService: DataService
   ) { }
 
   ngOnInit() {
     this.getTasks();
+    this.dataService.currentIsAdminStatus.subscribe(isAdmin => this.isAdmin = isAdmin);
   }
 
   public getTasks(): void {
