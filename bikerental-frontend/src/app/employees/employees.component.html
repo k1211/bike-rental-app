@@ -1,4 +1,5 @@
-<section class="employees">
+<section *ngIf="isAdmin"
+         class="app-employees">
   <ul>
     <li>
       <p>ID</p>
@@ -11,11 +12,17 @@
     <li *ngFor="let employee of employees">
       <p> {{ employee.id }}</p>
       <p> {{ employee.username }}</p>
-      <p> {{ employee.name }}</p>
-      <p> {{ employee.surname }}</p>
-      <p> {{ employee.isAdmin }}</p>
-      <p> {{ employee.lastLogin }}</p>
+      <p> {{ employee.first_name }}</p>
+      <p> {{ employee.last_name }}</p>
+      <p> {{ employee.is_superuser }}</p>
+      <p> {{ employee.last_login | date:'short' }} </p>
     </li>
   </ul>
-  <button class="tasks-button">Add new employee</button>
+  <div>
+    <button class="tasks-button">Add new employee</button>
+  </div>
+</section>
+
+<section *ngIf="!isAdmin">
+  brak uprawnień do podglądu pracowników
 </section>

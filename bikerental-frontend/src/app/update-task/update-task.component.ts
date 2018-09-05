@@ -49,7 +49,6 @@ export class UpdateTaskComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('update');
     let updatedTask = {id: this.taskID, status: this.updatedStatus, user: this.updatedEmployee};
     this.taskService.updateTask(updatedTask)
       .subscribe(() => {

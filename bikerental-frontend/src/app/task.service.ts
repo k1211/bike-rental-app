@@ -25,13 +25,11 @@ export class TaskService {
   }
 
   updateTask(updatedParams): Observable<any> {
-    console.log("update task api");
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
       })
     };
-    console.log(JSON.stringify(updatedParams));
     return this.http.put(TASKS_URL, updatedParams, httpOptions);
   }
 

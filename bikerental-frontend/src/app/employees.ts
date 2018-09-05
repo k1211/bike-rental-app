@@ -1,8 +1,8 @@
 export class Employee {
   id: number;
   username: string;
-  name: string;
-  surname: string;
-  lastLogin: string;
-  isAdmin: boolean;
+  first_name: string;
+  last_name: string;
+  last_login: string;
+  is_superuser: boolean;
 }
