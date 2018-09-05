@@ -1,8 +1,8 @@
 .tasks {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .tasks-button {
@@ -12,15 +12,55 @@
   cursor: pointer;
 }
 
-.tasks > button {
+.tasks-console {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.tasks-console form,
+.tasks-console > div {
+  display: flex;
+  align-items: center;
+}
+
+.tasks-console form {
+  padding: 0 10px;
+}
+
+.tasks-console form .form-group{
+  padding: 0 10px;
+}
+
+.tasks-console form .form-group label{
+  margin-right: 5px;
+}
+
+.tasks-console form button{
+  margin-left: 10px;
+  background-color: #709f50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.tasks-console > button,
+.tasks-console > div > button {
   padding: 15px 25px;
   border-radius: 10px;
   font-size: 14px;
   background-color: #b3e769;
-  margin: 10px 20px;
 }
 
-.tasks > button:hover {
+.tasks-console > div .clear-btn {
+  background-color: #dbdbdc;
+}
+
+.tasks-console > button:hover {
   background-color: #709f50;
 }
 
@@ -84,4 +124,3 @@
   background-color: transparent;
   cursor: default;
 }
-

@@ -1,5 +1,67 @@
 <section class="tasks">
-  <ul>
+
+  <div class="tasks-console">
+    <div>
+      <button (click)="displayFilter()"
+              class="tasks-button">
+        Filter tasks
+      </button>
+      <form *ngIf="newFilter.show">
+        <div class="form-group">
+          <label for="employee">Employee</label>
+          <select [(ngModel)]="newFilter.user"
+                  id="employee"
+                  name="employee">
+            <option *ngFor="let employee of employees"
+                    [value]="employee.username">
+              {{ employee.username }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="tasktype">Task type</label>
+          <select [(ngModel)]="newFilter.task_type"
+                  id="tasktype"
+                  name="tasktype">
+            <option *ngFor="let type of taskTypes"
+                    [value]="type">
+              {{ type }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select [(ngModel)]="newFilter.status"
+                  id="status"
+                  name="status">
+            <option *ngFor="let st of status" [value]="st">{{ st }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="priority">Priority</label>
+          <select [(ngModel)]="newFilter.priority"
+                  id="priority"
+                  name="priority">
+            <option *ngFor="let prio of priority"
+                    [value]="prio">
+              {{ prio }}
+            </option>
+          </select>
+        </div>
+        <div>
+          <button (click)="applyFilter()">Apply filter</button>
+          <button (click)="clear()" class="clear-btn">Clear</button>
+        </div>
+      </form>
+    </div>
+    <button *ngIf="isAdmin"
+            class="tasks-button"
+            routerLink="/tasks/add">
+      Add new task
+    </button>
+  </div>
+
+  <ul *ngIf="tasks.length>0">
     <li>
       <div (click)="sortByID()">
         <p>ID</p>
@@ -30,11 +92,11 @@
       <p *ngIf="isAdmin"> {{ task.user }} </p>
       <button class="tasks-button"
               routerLink="/tasks/edit/{{ task.id }}"
-      >Edit</button>
+      >Edit
+      </button>
     </li>
   </ul>
-  <button *ngIf="isAdmin"
-          class="tasks-button"
-          routerLink="/tasks/add"
-  >Add new task</button>
+  <div *ngIf="tasks.length==0">
+    <h1> No tasks to show. </h1>
+  </div>
 </section>

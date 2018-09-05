@@ -16,11 +16,11 @@ export class TaskService {
     private http: HttpClient
   ) { }
 
-  getTasks(): Observable<Object> {
+  getTasks(): Observable<any> {
     return this.http.get(TASKS_URL);
   }
 
-  getTasksByID(taskId): Observable<Object> {
+  getTasksByID(taskId): Observable<any> {
     return this.http.get(TASK_URL + taskId);
   }
 

@@ -14,7 +14,6 @@ export class CreateTaskComponent implements OnInit {
   taskTypes = ['Repair', 'Transport', 'Swapping battery'];
   status = ['New', 'In progress', 'Done'];
   priority = ['Low', 'High'];
-  submitted = false;
   employees = [''];
   newTask = {priority: 'Low', description: '', task_type: 'Repair', user: this.employees[1], status:'New'};
 
@@ -38,7 +37,6 @@ export class CreateTaskComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
     this.taskService.createTask(this.newTask)
       .subscribe(() => {
         this.router.navigate(['/tasks']);
