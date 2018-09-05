@@ -1,11 +1,23 @@
 <section class="tasks">
   <ul>
     <li>
-      <p>ID</p>
-      <p>PRIORITY</p>
+      <div (click)="sortByID()">
+        <p>ID</p>
+        <i class="fas fa-arrow-{{ idSort }}"></i>
+      </div>
+      <div (click)="sortByPriority()">
+        <p>PRIORITY</p>
+        <i class="fas fa-arrow-{{ prioritySort }}"></i>
+      </div>
       <p class="task-desc">DESCRIPTION</p>
-      <p>TASK TYPE</p>
-      <p>STATUS</p>
+      <div (click)="sortByTaskType()">
+        <p>TASK TYPE</p>
+        <i class="fas fa-arrow-{{ typeSort }}"></i>
+      </div>
+      <div (click)="sortByStatus()">
+        <p>STATUS</p>
+        <i class="fas fa-arrow-{{ statusSort }}"></i>
+      </div>
       <p *ngIf="isAdmin">EMPLOYEE</p>
       <button class="tasks-button">Edit</button>
     </li>

@@ -45,23 +45,24 @@
   padding: 15px 20px;
 }
 
-.tasks > ul li p {
+.tasks > ul li p,
+.tasks > ul li:first-child div {
   width: 100px;
   display: flex;
   justify-content: flex-start;
-  margin: 0 10px;
+  align-items: center;
+}
+
+.tasks > ul li:first-child div p {
+  width: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 5px;
 }
 
 .tasks > ul li p.task-desc {
   width: 500px;
-}
-
-.tasks > ul li p:first-child {
-  margin-left: 0;
-}
-
-.tasks > ul li p:last-child {
-  margin-right: 0;
 }
 
 .tasks > ul li:first-child p{

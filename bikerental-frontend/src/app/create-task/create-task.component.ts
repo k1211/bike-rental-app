@@ -39,7 +39,6 @@ export class CreateTaskComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    alert(JSON.stringify(this.newTask));
     this.taskService.createTask(this.newTask)
       .subscribe(() => {
         this.router.navigate(['/tasks']);
