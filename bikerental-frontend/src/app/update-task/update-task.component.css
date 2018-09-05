@@ -46,6 +46,7 @@
 
 .form-group input,
 .form-group select,
+.form-group div,
 .form-group textarea{
   width: 80%;
   padding: 5px;

@@ -2,41 +2,55 @@
   <h1 *ngIf="isAdmin">Change task owner</h1>
   <h1 *ngIf="!isAdmin">Change task status</h1>
 
-  <form>
-
+  <form (submit)="onSubmit()">
     <div class="form-group">
-      Task id: {{ taskID }}
+      <label>ID:</label>
+      <div>{{ taskID }}</div>
     </div>
 
     <div class="form-group">
-      Task priority: {{ task.priority }}
+      <label>Priority:</label>
+      <div>{{ task.priority }}</div>
     </div>
 
     <div class="form-group">
-      Task description: {{ task.description }}
+      <label>Description:</label>
+      <div>{{ task.description }}</div>
     </div>
 
     <div class="form-group">
-      Task type: {{ task.task_type }}
+      <label>Type:</label>
+      <div>{{ task.task_type }}</div>
     </div>
 
     <div *ngIf="isAdmin"
           class="form-group">
-      Task status: {{ task.status }}
+      <label>Status: </label>
+      <div>{{ task.status }}</div>
     </div>
     <div *ngIf="!isAdmin"
           class="form-group">
       <label for="status">Status</label>
-      <select id="status" required>
-        <option *ngFor="let st of status" [value]="st">{{st}}</option>
+      <select [(ngModel)]="updatedStatus"
+              id="status"
+              required>
+        <option *ngFor="let st of status"
+                [value]="st">
+          {{st}}
+        </option>
       </select>
     </div>
 
     <div *ngIf="isAdmin"
          class="form-group">
       <label for="employee">Employee</label>
-      <select id="employee" required>
-        <option *ngFor="let employee of employees" [value]="employee">{{employee}}</option>
+      <select [(ngModel)]="updatedEmployee"
+              name="employee"
+              id="employee">
+        <option *ngFor="let employee of employees"
+                [value]="employee.id">
+          {{employee.username}}
+        </option>
       </select>
     </div>
 
@@ -46,3 +60,7 @@
 
   </form>
 </section>
+
+
+aaa {{ updatedStatus }} <--->  {{ task.status }} aaa
+bbb {{ updatedEmployee }}

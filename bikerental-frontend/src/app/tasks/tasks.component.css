@@ -82,7 +82,7 @@
 .tasks > ul li:first-child {
   background-color: #fbfbfc;
   border: none;
-  padding: 15px 20px;
+  padding: 0 20px;
 }
 
 .tasks > ul li p,
@@ -98,7 +98,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-right: 5px;
+  margin: 0 5px 0 0;
 }
 
 .tasks > ul li p.task-desc {

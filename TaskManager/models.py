@@ -13,7 +13,7 @@ class Task(models.Model):
         choices=PRIORITY_CHOICES,
         default=LOW,
     )
-    description = models.CharField(max_length=256)
+    description = models.CharField(max_length=512)
     REPAIR = 'REPAIR'
     TRANSPORT = 'TRANSPORT'
     BATTERY = 'BATTERY'
