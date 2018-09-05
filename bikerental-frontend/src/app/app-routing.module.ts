@@ -5,11 +5,13 @@ import { TasksComponent} from "./tasks/tasks.component";
 import {EmployeesComponent} from "./employees/employees.component";
 import {CreateEmployeeComponent} from "./create-employee/create-employee.component";
 import {CreateTaskComponent} from "./create-task/create-task.component";
+import {UpdateTaskComponent} from "./update-task/update-task.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/tasks', pathMatch: 'full' },
   { path: 'tasks', component: TasksComponent },
   { path: 'tasks/add', component: CreateTaskComponent },
+  { path: 'tasks/edit/:id', component: UpdateTaskComponent },
   { path: 'employees', component: EmployeesComponent },
   { path: 'employees/add', component: CreateEmployeeComponent }
 ];

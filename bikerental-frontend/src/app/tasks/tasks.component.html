@@ -15,13 +15,14 @@
       <p class="task-desc"> {{ task.description }}</p>
       <p> {{ task.task_type }}</p>
       <p> {{ task.status }}</p>
-      <p *ngIf="isAdmin"> {{ task.user }}</p>
-      <button class="tasks-button">Edit</button>
+      <p *ngIf="isAdmin"> {{ task.user }} </p>
+      <button class="tasks-button"
+              routerLink="/tasks/edit/{{ task.id }}"
+      >Edit</button>
     </li>
   </ul>
   <button *ngIf="isAdmin"
           class="tasks-button"
-          routerLink="/tasks/add">
-    Add new task
-  </button>
+          routerLink="/tasks/add"
+  >Add new task</button>
 </section>

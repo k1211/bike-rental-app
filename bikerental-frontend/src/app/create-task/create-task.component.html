@@ -1,37 +1,64 @@
-<section class="app-create-task">
+<section *ngIf="isAdmin"
+         class="app-create-task">
   <h1>Add new task</h1>
 
-  <form>
+  <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea id="description" rows="5" class="form-control" required></textarea>
+      <textarea [(ngModel)]="newTask.description"
+                id="description"
+                name="description"
+                rows="5"
+                required
+      ></textarea>
     </div>
 
     <div class="form-group">
       <label for="priority">Priority</label>
-      <select id="priority" required>
-        <option *ngFor="let prio of priority" [value]="prio">{{prio}}</option>
+      <select [(ngModel)]="newTask.priority"
+              id="priority"
+              name="priority"
+              required>
+        <option *ngFor="let prio of priority"
+                [value]="prio">
+          {{prio}}
+        </option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="tasktype">Task type</label>
-      <select id="tasktype" required>
-        <option *ngFor="let type of taskTypes" [value]="type">{{type}}</option>
+      <select [(ngModel)]="newTask.task_type"
+              id="tasktype"
+              name="tasktype"
+              required>
+        <option *ngFor="let type of taskTypes"
+                [value]="type">
+          {{type}}
+        </option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="status">Status</label>
-      <select id="status" required>
+      <select [(ngModel)]="newTask.status"
+              id="status"
+              name="status"
+              required>
         <option *ngFor="let st of status" [value]="st">{{st}}</option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="employee">Employee</label>
-      <select id="employee" required>
-        <option *ngFor="let employee of employees" [value]="employee">{{employee}}</option>
+      <select [(ngModel)]="newTask.user"
+              id="employee"
+              name="employee"
+              required>
+        <option *ngFor="let employee of employees"
+                [value]="employee.id">
+          {{employee.username}}
+        </option>
       </select>
     </div>
 
@@ -40,4 +67,7 @@
     </div>
 
   </form>
+</section>
+<section *ngIf="!isAdmin">
+  brak uprawnień do tworzenia zadań
 </section>
