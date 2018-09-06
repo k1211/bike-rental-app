@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const TASKS_URL = 'http://127.0.0.1:8000/api/task/';
 const TASK_URL = 'http://127.0.0.1:8000/api/task/?id=';
+const USER_TASK_URL = 'http://127.0.0.1:8000/api/task/?user=';
 
 
 @Injectable({
@@ -22,6 +23,10 @@ export class TaskService {
 
   getTaskByID(taskId): Observable<any> {
     return this.http.get(TASK_URL + taskId);
+  }
+
+  getTaskByUser(userId): Observable<any> {
+    return this.http.get(USER_TASK_URL + userId);
   }
 
   updateTask(updatedParams): Observable<any> {

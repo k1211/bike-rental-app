@@ -10,7 +10,7 @@ import {UserService} from "../user.service";
 })
 export class TasksComponent implements OnInit {
   isAdmin: boolean = false;
-  tasks=[];
+  tasks = [];
   employees;
   idSort = 'up';
   prioritySort = 'up';
@@ -20,13 +20,13 @@ export class TasksComponent implements OnInit {
   status = ['New', 'In progress', 'Done'];
   priority = ['Low', 'High'];
   newFilter = {user: 'all', priority: 'all', task_type: 'all', status: 'all', show: false};
+  currentUserId = 3;
 
   constructor(
     private taskService: TaskService,
     private dataService: DataService,
     private userService: UserService
-  ) {
-  }
+  ) { }
 
   ngOnInit() {
     this.userService.getUsers()
@@ -43,16 +43,16 @@ export class TasksComponent implements OnInit {
 
   public customFilter(element) {
     let isApplicable = true;
-    if(this.newFilter.priority !== 'all' && this.newFilter.priority !== null) {
+    if (this.newFilter.priority !== 'all' && this.newFilter.priority !== null) {
       isApplicable = isApplicable && (element.priority == this.newFilter.priority);
     }
-    if(this.newFilter.status !== 'all' && this.newFilter.status !== null) {
+    if (this.newFilter.status !== 'all' && this.newFilter.status !== null) {
       isApplicable = isApplicable && (element.status == this.newFilter.status);
     }
-    if(this.newFilter.task_type !== 'all' && this.newFilter.task_type !== null) {
+    if (this.newFilter.task_type !== 'all' && this.newFilter.task_type !== null) {
       isApplicable = isApplicable && (element.task_type == this.newFilter.task_type);
     }
-    if(this.newFilter.user !== 'all' && this.newFilter.user !== null) {
+    if (this.newFilter.user !== 'all' && this.newFilter.user !== null) {
       isApplicable = isApplicable && (element.user == this.newFilter.user);
     }
     return isApplicable;
@@ -124,11 +124,19 @@ export class TasksComponent implements OnInit {
   }
 
   public getTasks(): void {
-    this.taskService.getTasks()
-      .subscribe(tasks => {
-        this.tasks = tasks;
-        this.getEmployeeName(this.tasks, this.employees);
-      });
+    if (this.isAdmin) {
+      this.taskService.getTasks()
+        .subscribe(tasks => {
+          this.tasks = tasks;
+          this.getEmployeeName(this.tasks, this.employees);
+        });
+    } else {
+      this.taskService.getTaskByUser(this.currentUserId)
+        .subscribe(tasks => {
+          this.tasks = tasks;
+          this.getEmployeeName(this.tasks, this.employees);
+        });
+    }
   }
 
   private getEmployeeName(tasks, employees) {

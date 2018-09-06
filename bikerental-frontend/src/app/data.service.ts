@@ -1,17 +1,25 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from "rxjs";
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  private isAdminStatus = new BehaviorSubject(true);
+  private isAdminStatus = new BehaviorSubject(false);
   currentIsAdminStatus = this.isAdminStatus.asObservable();
 
-  constructor() { }
+  private userID = new BehaviorSubject(1);
+  currentUserID = this.userID.asObservable();
 
-   checkIfIsAdmin(isAdmin: boolean) {
+  constructor() {
+  }
+
+  checkIfIsAdmin(isAdmin: boolean) {
     this.isAdminStatus.next(isAdmin);
+  }
+
+  checkCurrentUserID(id: number) {
+    this.userID.next(id);
   }
 }

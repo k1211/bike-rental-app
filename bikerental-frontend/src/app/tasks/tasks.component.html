@@ -1,6 +1,7 @@
 <section class="tasks">
 
-  <div class="tasks-console">
+  <div *ngIf="isAdmin"
+       class="tasks-console">
     <div>
       <button (click)="displayFilter()"
               class="tasks-button">
@@ -54,8 +55,7 @@
         </div>
       </form>
     </div>
-    <button *ngIf="isAdmin"
-            class="tasks-button"
+    <button class="tasks-button"
             routerLink="/tasks/add">
       Add new task
     </button>

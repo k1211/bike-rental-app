@@ -32,6 +32,7 @@
           class="form-group">
       <label for="status">Status</label>
       <select [(ngModel)]="updatedStatus"
+              name="status"
               id="status"
               required>
         <option *ngFor="let st of status"

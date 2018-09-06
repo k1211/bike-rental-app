@@ -8,8 +8,8 @@ import {DataService} from "./data.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  isAdmin = false;
-  isLogged = false;
+  isAdmin;
+  isLogged = true;
   loginLogout = 'Logout';
 
   constructor(
