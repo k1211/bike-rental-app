@@ -51,15 +51,20 @@ class UserRepository:
         return user
 
     @staticmethod
-    def create(password, is_superuser, is_staff, is_active, username, first_name, last_name, email):
+    def create(password, is_superuser, is_staff, username, first_name, last_name, email):
         user = User()
-        user.password = password
-        user.is_superuser = is_superuser
-        user.is_staff = is_staff
-        user.is_active = is_active
-        user.username = username
         user.first_name = first_name
         user.last_name = last_name
+        user.username = username
+        user.password = password
+        if is_superuser == 'true':
+            user.is_superuser = True
+        else:
+            user.is_superuser = False
+        if is_staff == 'true':
+            user.is_staff = True
+        else:
+            user.is_staff = False
         user.email = email
         user.save()
         return user

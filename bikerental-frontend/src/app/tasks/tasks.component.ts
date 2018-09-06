@@ -123,7 +123,6 @@ export class TasksComponent implements OnInit {
     }
   }
 
-
   public getTasks(): void {
     this.taskService.getTasks()
       .subscribe(tasks => {

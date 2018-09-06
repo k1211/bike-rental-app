@@ -4,5 +4,6 @@ export class Employee {
   first_name: string;
   last_name: string;
   last_login: string;
+  password: string;
   is_superuser: boolean;
 }

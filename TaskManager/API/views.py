@@ -14,16 +14,15 @@ class UserCView(generics.ListCreateAPIView):
         return qs
 
     def post(self, request, *args, **kwargs):
-        password = request.data.get('password')
-        is_superuser = request.data.get('is_superuser')
-        is_staff = request.data.get('is_staff')
-        is_active = request.data.get('is_active')
         first_name = request.data.get('first_name')
         last_name = request.data.get('last_name')
         username = request.data.get('username')
+        password = request.data.get('password')
+        is_superuser = request.data.get('is_superuser')
+        is_staff = request.data.get('is_staff')
         email = request.data.get('email')
 
-        UserRepository.create(password, is_superuser, is_staff, is_active, username, first_name, last_name, email)
+        UserRepository.create(password, is_superuser, is_staff, username, first_name, last_name, email)
 
         return HttpResponse(status=200)
 

@@ -1,5 +1,5 @@
 <header>
-      <ul *ngIf="logged">
+      <ul *ngIf="isLogged">
         <li>
           <a routerLink=""> Tasks </a>
         </li>
@@ -9,4 +9,13 @@
       </ul>
       <a routerLink="#"> {{ loginLogout }} </a>
 </header>
-<router-outlet></router-outlet>
+
+<div *ngIf="isLogged">
+  <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="!isLogged">
+  <app-login></app-login>
+</div>
+
+

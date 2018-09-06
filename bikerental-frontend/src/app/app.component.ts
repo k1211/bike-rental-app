@@ -9,7 +9,7 @@ import {DataService} from "./data.service";
 })
 export class AppComponent implements OnInit{
   isAdmin = false;
-  logged = true;
+  isLogged = false;
   loginLogout = 'Logout';
 
   constructor(
@@ -19,5 +19,10 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
      this.dataService.currentIsAdminStatus.subscribe(isAdmin => this.isAdmin = isAdmin);
+     if(this.isLogged) {
+       this.loginLogout = 'Logout';
+     } else {
+       this.loginLogout = 'Login';
+     }
   }
 }

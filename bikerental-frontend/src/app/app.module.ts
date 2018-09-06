@@ -11,6 +11,7 @@ import { CreateTaskComponent } from './create-task/create-task.component';
 import { UpdateTaskComponent } from './update-task/update-task.component';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AppRoutingModule } from './app-routing.module';
     EmployeesComponent,
     CreateTaskComponent,
     UpdateTaskComponent,
-    CreateEmployeeComponent
+    CreateEmployeeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

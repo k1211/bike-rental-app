@@ -1,61 +1,44 @@
 <section *ngIf="isAdmin"
          class="app-create-employee">
-  <h1>Add new task</h1>
+  <h1>Add new employee</h1>
 
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="first_name">First name</label>
-      <input id="first_name">
+      <input [(ngModel)]="newEmployee.first_name"
+             name="first_name"
+             id="first_name">
     </div>
-
     <div class="form-group">
-      <label for="priority">Priority</label>
-      <select [(ngModel)]="newTask.priority"
-              id="priority"
-              name="priority"
+      <label for="last_name">Last name</label>
+      <input [(ngModel)]="newEmployee.last_name"
+             name="last_name"
+             id="last_name">
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input [(ngModel)]="newEmployee.username"
+             name="username"
+             id="username">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input [(ngModel)]="newEmployee.password"
+             name="password"
+             id="password">
+    </div>
+    <div class="form-group">
+      <label for="superuser">Admin</label>
+      <select [(ngModel)]="newEmployee.is_superuser"
+              id="superuser"
+              name="superuser"
               required>
-        <option *ngFor="let prio of priority"
-                [value]="prio">
-          {{prio}}
-        </option>
+        <option *ngFor="let bool of [true,false]" [value]="bool">{{bool}}</option>
       </select>
     </div>
 
-    <div class="form-group">
-      <label for="tasktype">Task type</label>
-      <select [(ngModel)]="newTask.task_type"
-              id="tasktype"
-              name="tasktype"
-              required>
-        <option *ngFor="let type of taskTypes"
-                [value]="type">
-          {{type}}
-        </option>
-      </select>
-    </div>
 
-    <div class="form-group">
-      <label for="status">Status</label>
-      <select [(ngModel)]="newTask.status"
-              id="status"
-              name="status"
-              required>
-        <option *ngFor="let st of status" [value]="st">{{st}}</option>
-      </select>
-    </div>
 
-    <div class="form-group">
-      <label for="employee">Employee</label>
-      <select [(ngModel)]="newTask.user"
-              id="employee"
-              name="employee"
-              required>
-        <option *ngFor="let employee of employees"
-                [value]="employee.id">
-          {{employee.username}}
-        </option>
-      </select>
-    </div>
 
     <div class="submit-btn">
       <button type="submit">Submit</button>

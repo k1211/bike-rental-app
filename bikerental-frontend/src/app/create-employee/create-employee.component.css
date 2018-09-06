@@ -1,0 +1,52 @@
+.app-create-employee,
+.app-create-employee > form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 20px;
+  color: white;
+  background-color: #709f50;
+  padding: 5px 10px;
+}
+
+form {
+  width: 100%;
+}
+
+form button {
+  background-color: #709f50;
+  margin: 0;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+form .submit-btn,
+.form-group {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+  margin: 10px 0;
+}
+
+.form-group {
+  justify-content: space-between;
+}
+
+.form-group label {
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+  width: 80%;
+  padding: 5px;
+}
+
