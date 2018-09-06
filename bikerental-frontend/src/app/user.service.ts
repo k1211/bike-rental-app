@@ -12,8 +12,7 @@ export class UserService {
 
   constructor(
     private http: HttpClient
-  ) {
-  }
+  ) {}
 
   getUsers(): Observable<Object> {
     return this.http.get(USERS_URL);
