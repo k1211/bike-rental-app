@@ -11,7 +11,7 @@ const AUTH_TOKEN_URL = 'http://localhost:8000/api/auth/';
 })
 export class LoginService {
 
-  TOKEN ='';
+  TOKEN ;
 
   constructor(
     private http: HttpClient

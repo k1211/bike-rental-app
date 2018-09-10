@@ -180,4 +180,3 @@ yarn-error.log
 /modules/rollup-test/dist/
 
 package-lock.json
-package.json

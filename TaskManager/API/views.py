@@ -11,7 +11,7 @@ from TaskManager.views import TaskRepository, UserRepository
 class UserCView(generics.ListCreateAPIView):
     serializer_class = UserSerializer
     authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
         qs = UserRepository.get_all_users()
