@@ -7,7 +7,7 @@ import {DataService} from "./data.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   isAdmin;
   isLogged = true;
   loginLogout = 'Logout';
@@ -15,14 +15,24 @@ export class AppComponent implements OnInit{
   constructor(
     private taskService: TaskService,
     private dataService: DataService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
-     this.dataService.currentIsAdminStatus.subscribe(isAdmin => this.isAdmin = isAdmin);
-     if(this.isLogged) {
-       this.loginLogout = 'Logout';
-     } else {
-       this.loginLogout = 'Login';
-     }
+    this.dataService.currentIsAdminStatus.subscribe(isAdmin => this.isAdmin = isAdmin);
+    this.adjustLoginButton();
   }
+  doLoginLogout() {
+    this.isLogged = !this.isLogged;
+    this.adjustLoginButton();
+  }
+
+  private adjustLoginButton() {
+    if (this.isLogged) {
+      this.loginLogout = 'Logout';
+    } else {
+      this.loginLogout = 'Login';
+    }
+  }
+
 }

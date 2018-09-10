@@ -6,6 +6,8 @@ import {BehaviorSubject} from "rxjs";
 })
 export class DataService {
 
+  isLogged = new BehaviorSubject(false);
+
   private isAdminStatus = new BehaviorSubject(false);
   currentIsAdminStatus = this.isAdminStatus.asObservable();
 

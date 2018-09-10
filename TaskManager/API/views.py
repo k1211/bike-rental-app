@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 
 from rest_framework import generics
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
 from .serializers import TaskSerializer, UserSerializer
 from TaskManager.views import TaskRepository, UserRepository
@@ -8,23 +10,28 @@ from TaskManager.views import TaskRepository, UserRepository
 
 class UserCView(generics.ListCreateAPIView):
     serializer_class = UserSerializer
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
         qs = UserRepository.get_all_users()
         return qs
 
     def post(self, request, *args, **kwargs):
-        first_name = request.data.get('first_name')
-        last_name = request.data.get('last_name')
-        username = request.data.get('username')
-        password = request.data.get('password')
-        is_superuser = request.data.get('is_superuser')
-        is_staff = request.data.get('is_staff')
-        email = request.data.get('email')
+        if request.user.is_admin():
+            first_name = request.data.get('first_name')
+            last_name = request.data.get('last_name')
+            username = request.data.get('username')
+            password = request.data.get('password')
+            is_superuser = request.data.get('is_superuser')
+            is_staff = request.data.get('is_staff')
+            email = request.data.get('email')
 
-        UserRepository.create(password, is_superuser, is_staff, username, first_name, last_name, email)
+            UserRepository.create(password, is_superuser, is_staff, username, first_name, last_name, email)
 
-        return HttpResponse(status=200)
+            return HttpResponse(status=200)
+        else:
+            return HttpResponse(status=403)
 
 
 class TaskCRUView(generics.ListCreateAPIView):

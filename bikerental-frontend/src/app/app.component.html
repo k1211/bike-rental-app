@@ -7,7 +7,7 @@
           <a routerLink="employees"> Employees </a>
         </li>
       </ul>
-      <a routerLink="#"> {{ loginLogout }} </a>
+      <a (click)="doLoginLogout()"> {{ loginLogout }} </a>
 </header>
 
 <div *ngIf="isLogged">

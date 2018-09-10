@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataService} from "../data.service";
 import {LoginService} from "../login.service";
 
@@ -12,15 +12,19 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private loginSerive: LoginService
-  ) { }
+    private loginService: LoginService
+  ) {
+  }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    this.loginSerive.login(this.loginUser)
-      .subscribe(() => console.log('zalogowano'));
+    let token;
+    this.loginService.login(this.loginUser)
+      .subscribe(() => {
+        console.log('zalogowano');
+      });
   }
 
 }
